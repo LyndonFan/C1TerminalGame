@@ -97,7 +97,7 @@ class AlgoStrategy(gamelib.AlgoCore):
                 # Sending more at once is better since attacks can only hit a single ping at a time
                 if game_state.turn_number % 2 == 1:
                     # To simplify we will just check sending them from back left and right
-                    ping_spawn_location_options = [[13, 0], [14, 0]]
+                    ping_spawn_location_options = [[13-i, i] for i in range(13)] + [[14+i, i] for i in range(13)]
                     best_location = self.least_damage_spawn_location(game_state, ping_spawn_location_options)
                     game_state.attempt_spawn(PING, best_location, 1000)
 
