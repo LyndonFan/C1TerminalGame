@@ -102,8 +102,9 @@ class AlgoStrategy(gamelib.AlgoCore):
                     game_state.attempt_spawn(PING, best_location, 1000)
 
                 # Lastly, if we have spare cores, let's build some Encryptors to boost our Pings' health.
-                for i in range(2,10):
-                    game_state.attempt_spawn(ENCRYPTOR, [[15-i,i],[12+i,i]])
+                for j in range(8)
+                    for i in range(2,10-j):
+                        game_state.attempt_spawn(ENCRYPTOR, [[15-i,i+j],[12+i,i+j]])
 
     def build_defences(self, game_state):
         """
