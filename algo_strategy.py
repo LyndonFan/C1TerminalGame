@@ -48,7 +48,6 @@ class AlgoStrategy(gamelib.AlgoCore):
         
 
     def on_turn(self, turn_state):
-        game_state.attempt_spawn(EMP, [24, 10], 3)
 
         """
         This function is called every turn with the game state wrapper as
@@ -103,8 +102,8 @@ class AlgoStrategy(gamelib.AlgoCore):
                     game_state.attempt_spawn(PING, best_location, 1000)
 
                 # Lastly, if we have spare cores, let's build some Encryptors to boost our Pings' health.
-                encryptor_locations = [[13, 2], [14, 2], [13, 3], [14, 3]]
-                game_state.attempt_spawn(ENCRYPTOR, encryptor_locations)
+                for i in range(2,10):
+                    game_state.attempt_spawn(ENCRYPTOR, [[15-i,i],[12+i]])
 
     def build_defences(self, game_state):
         """
